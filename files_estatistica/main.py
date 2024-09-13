@@ -6,8 +6,8 @@ from funcoes import Funcoes_Estatisticas
 # Importando os dados do banco de dados
 #dados1 = bd.sync
 #dados2 = bd.asyncr
-dados1 = bd.iris['Id']
-dados2 = bd.stock['Open']
+dados1 = bd.stock
+dados2 = bd.stock
 # Criando uma instância da classe Funcoes_Estatisticas
 estatisticas = Funcoes_Estatisticas(dados1, dados2, variancia_tipo='populacional')
 
@@ -54,6 +54,9 @@ def menu():
             print(estatisticas.outliers())
         elif escolha == '12':
             print(estatisticas.boxplot())
+        elif escolha == '13':
+            print(estatisticas.time_series())
+    
         elif escolha == '0':
             print("Saindo...")
             break

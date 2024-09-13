@@ -3,6 +3,7 @@ import statistics as sta
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import matplotlib.dates as mdates
 
 class Funcoes_Estatisticas:
     """
@@ -229,4 +230,8 @@ class Funcoes_Estatisticas:
         
         # Ajusta o layout e exibe os plots
         plt.tight_layout()
+        plt.show()
+
+    def time_series(self):
+        sns.lineplot(data=self.dados1, x='Date',y='Open')
         plt.show()
