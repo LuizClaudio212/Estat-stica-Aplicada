@@ -4,10 +4,9 @@ import banco_de_dados as bd
 from funcoes import Funcoes_Estatisticas
 
 # Importando os dados do banco de dados
-#dados1 = bd.sync
-#dados2 = bd.asyncr
 dados1 = bd.stock
-dados2 = bd.stock
+dados2 = None
+
 # Criando uma instância da classe Funcoes_Estatisticas
 estatisticas = Funcoes_Estatisticas(dados1, dados2, variancia_tipo='populacional')
 
@@ -26,6 +25,7 @@ def menu():
         print("10: Para mostrar o intervalo de classes dos dados1 e dados2")
         print("11: Para identificar outliers em dados1 e dados2")
         print("12: Plota boxplots para os dois conjuntos de dados (dados1 e dados2)")
+        print("13: Plota série temporal dos dados1")
         print("0: Sair")
 
         escolha = input("Digite o número da opção desejada: ")
@@ -53,19 +53,20 @@ def menu():
         elif escolha == '11':
             print(estatisticas.outliers())
         elif escolha == '12':
-            print(estatisticas.boxplot())
+            estatisticas.boxplot()
         elif escolha == '13':
-            print(estatisticas.time_series())
-    
+            if 'Date' in dados1.columns:
+                estatisticas.time_series()
+            else:
+                print("A coluna 'Date' não está presente em dados1.")
         elif escolha == '0':
             print("Saindo...")
             break
         else:
-            print("Opção inválida. Por favor, escolha um número entre 0 e 12.")
+            print("Opção inválida. Por favor, escolha um número entre 0 e 13.")
 
 def main():
     menu()
-    
 
 if __name__ == "__main__":
     main()
