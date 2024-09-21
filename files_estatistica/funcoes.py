@@ -54,7 +54,7 @@ class Funcoes_Estatisticas:
         Plota boxplots para dois conjuntos de dados (dados1 e dados2).
         """
         plt.figure(figsize=(8, 6))
-        plt.boxplot([self.dados1, self.dados2],
+        plt.boxplot([self.dados2['PetalLengthCm'], self.dados2['PetalWidthCm']],
                     labels=['Dados 1', 'Dados 2'],
                     patch_artist=True,
                     boxprops=dict(facecolor='lightblue', color='blue'),

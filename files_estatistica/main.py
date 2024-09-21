@@ -5,7 +5,7 @@ from funcoes import Funcoes_Estatisticas
 
 # Importando os dados do banco de dados
 dados1 = bd.stock
-dados2 = None
+dados2 = bd.iris
 
 # Criando uma instância da classe Funcoes_Estatisticas
 estatisticas = Funcoes_Estatisticas(dados1, dados2, variancia_tipo='populacional')
